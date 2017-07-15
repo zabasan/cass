@@ -22,7 +22,8 @@ app.use('/users', userRouter());
 app.use('/login', loginRouter());
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/casorio');
+let DB = 'mongodb://<heroku_n9l4rm3r>:<zabasan>@ds161162.mlab.com:61162/heroku_n9l4rm3r';
+mongoose.connect(DB);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname+'/invitaciones/build/index.html'));
